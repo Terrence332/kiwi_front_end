@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import KiwiHeader from './common/header'
+import store from './store'
+import {BrowserRouter, Route} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import Root from './pages/root'
+import Login from './pages/login'
+import Home from './pages/home'
+import Register from './pages/register'
 
-class App extends Component {
+class App extends React.PureComponent {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Provider store={store}>
+        <BrowserRouter>
+          <KiwiHeader />
+          <Route path='/' exact component={Root}></Route>
+          <Route path='/login' exact component={Login}></Route>
+          <Route path='/register' exact component={Register}></Route>
+          <Route path='/home' exact component={Home}></Route>
+        </BrowserRouter>
+      </Provider>
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,0 +1,8 @@
+export const CHANGE_USERNAME = 'register/change_username'
+export const CHANGE_EMAIL = 'register/change_email'
+export const CHANGE_PASSWORD = 'register/change_password'
+export const CHANGE_PASSWORD2 = 'register/change_password2'
+export const SET_USERNAME_REPEAT = 'register/set_username_repeat'
+export const SET_EMAIL_REPEAT = 'register/set_email_repeat'
+export const REGISTER = 'register/register'
+export const VERIFICATION_CHANGE = 'register/verification_change'
