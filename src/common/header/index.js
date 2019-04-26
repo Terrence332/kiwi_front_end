@@ -55,7 +55,7 @@ class KiwiHeader extends React.PureComponent{
               <Link to='/login'>
                 <Button className='btn' type="primary">Login</Button>
               </Link>
-              <a href='https://github.com/'>
+              <a href='https://github.com/Terrence332/kiwi_front_end'>
                 <Button className='btn' type="primary" icon='github'>Github</Button>
               </a>
             </LoginDiv>
