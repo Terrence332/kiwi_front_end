@@ -1,5 +1,5 @@
 import React from 'react'
-import {Layout, Menu, Button} from 'antd'
+import {Layout, Menu, Button, Dropdown} from 'antd'
 import 'antd/dist/antd.css'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -15,19 +15,31 @@ const {Header} = Layout
 
 class KiwiHeader extends React.PureComponent{
   componentWillMount(){
-    localStorage.setItem('login', 'false')
     if(localStorage.getItem('login') === 'true' ){
       this.props.setLoginState()
     }
   }
+  handleLogout = ()=>{
+    localStorage.setItem('login', 'false')
+    localStorage.setItem('JWT', '')
+    this.props.setLogoutState()
+  }
   render(){
     if(this.props.login){
+      const menu = (
+        <Menu>
+          <Menu.Item>
+            <Link to='/usercenter'>user center</Link>
+          </Menu.Item>
+          <Menu.Item onClick={this.handleLogout}>logout</Menu.Item>
+        </Menu>
+      )
       return(
         <Layout>
           <Header className="header">
             <Link to='/'>
-              <Logo>Logo</Logo>
-            </Link> 
+              <Logo />
+            </Link>
             <MenuDiv>
               <Menu
                 theme="dark"
@@ -35,12 +47,16 @@ class KiwiHeader extends React.PureComponent{
                 defaultSelectedKeys={['1']}
                 style={{ lineHeight: '64px' }}
               >
-                <Menu.Item key="1">网盘</Menu.Item>
+                <Menu.Item key="1">Net Disk</Menu.Item>
                 <Menu.Item key="2">RDS</Menu.Item>
                 <Menu.Item key="3">VPS</Menu.Item>
               </Menu>
             </MenuDiv>
-            <AdditionDiv></AdditionDiv>
+            <AdditionDiv>
+              <Dropdown overlay={menu} placement="bottomCenter">
+                <Button className='btn' type="primary">My Kiwi</Button>
+              </Dropdown>
+            </AdditionDiv>
           </Header>
         </Layout>
       )
@@ -49,7 +65,7 @@ class KiwiHeader extends React.PureComponent{
           <Layout>
           <Header className="header">
             <Link to='/'>
-              <Logo>Logo</Logo>
+              <Logo />
             </Link> 
             <LoginDiv>
               <Link to='/login'>
@@ -71,8 +87,11 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  setLoginState(){
+  setLoginState: ()=>{
     dispatch(loginActionCreators.setLoginState())
+  },
+  setLogoutState: () => {
+    dispatch(loginActionCreators.setLogoutState())
   }
 })
 

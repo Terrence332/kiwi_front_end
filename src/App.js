@@ -7,6 +7,8 @@ import Root from './pages/root'
 import Login from './pages/login'
 import Home from './pages/home'
 import Register from './pages/register'
+import UserCenter from './pages/center'
+import NetDisk from './pages/netdisk'
 
 class App extends React.PureComponent {
 
@@ -19,6 +21,8 @@ class App extends React.PureComponent {
           <Route path='/login' exact component={Login}></Route>
           <Route path='/register' exact component={Register}></Route>
           <Route path='/home' exact component={Home}></Route>
+          <Route path='/usercenter' exact component={UserCenter}></Route>
+          <Route path='/netdisk' component={NetDisk}></Route>
         </BrowserRouter>
       </Provider>
     )

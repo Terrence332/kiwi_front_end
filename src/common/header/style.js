@@ -1,23 +1,19 @@
 import styled from 'styled-components'
 
 export const Logo = styled.div`
-  position: absolute;
-  floatt: left;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 15%;
-  height: 64px;
-  background-size: contain;
-  background: #757575;
+  width: 120px;
+  height: 48px;
+  background: #757575;  
+  margin: 8px 10px 8px 0;
+  float: left;
 `
 
 export const MenuDiv = styled.div`
   position: relative;
   display: block;
-  margin-left: 15%;
+  margin-left: 5%;
   float: left;
-  width: 50%;
+  width: 70%;
   height: 64px;
   background-size: contain;
 `
@@ -25,12 +21,13 @@ export const MenuDiv = styled.div`
 export const AdditionDiv = styled.div`
   positon: relative;
   displat: block;
-  margin-right: 0px;
   float: right;
-  width: 15%;
   height: 64px;
   background-size: contain;
-  background: #757575;
+  .btn{
+    margin-right: 20px;
+    width: 120px;
+  }
 `
 
 export const LoginDiv = styled.div`

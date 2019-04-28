@@ -1,3 +1,7 @@
 export const SET_LOGIN_STATE = 'login/set_login_state'
+export const SET_LOGOUT_STATE = 'login/set_logout_state'
 export const SET_FROMREGISTER = 'login/set_fromregister'
 export const RESET_FROMREGISTER = 'login/reset_fromregister'
+export const CHANGE_USERNAME = 'login/change_username'
+export const CHANGE_PASSWORD = 'login/change_password'
+export const ALERT_WRONG_MESSAGE = 'login/alert_wrong_message'
