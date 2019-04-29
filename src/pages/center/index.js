@@ -8,10 +8,13 @@ import {
 } from './style'
 
 class UserCenter extends React.PureComponent{
+  handleButton = (event)=>{
+    console.log(event.target)
+  }
   render(){
     if(this.props.login === true){
       return(
-        <div>UserCenter</div>
+        <button id='one' onClick={this.handleButton}>button</button>
       )
     }else{
       return(

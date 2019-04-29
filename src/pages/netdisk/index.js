@@ -1,63 +1,72 @@
 import React from 'react'
-import {Layout, Menu, Breadcrumb, Icon} from 'antd'
-import {Route, Link} from 'react-router-dom'
+import {Layout, Menu, Icon} from 'antd'
+import {Route, Link, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+
+import MyFile from './component/files'
+import Recycle from './component/recycle'
+import Download from './component/history/download'
+import Upload from './component/history/upload'
 
 const { SubMenu } = Menu
-const { Content, Sider } = Layout
-
-function one(){
-  return <div>one</div>
-}
-
-function two(){
-  return <div>two</div>
-}
-
-function three(){
-  return <div>three</div>
-}
-
-function four(){
-  return <div>four</div>
-}
+const { Sider } = Layout
 
 class NetDisk extends React.PureComponent{
   render(){
-    return(
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider width='200px' style={{ background: "#fff" }}>
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
-          style={{ height: "100%", borderRight: 0 }}
-        >
-          <Menu.Item key="1" >
-            <Icon type="folder" />
-            <span><Link to={`${this.props.match.url}/1`}>My Files</Link></span>
-          </Menu.Item>
-          <SubMenu key="sub1" title={<span><Icon type="book" />Task History</span>}>
-            <Menu.Item key="2">Download</Menu.Item>
-            <Menu.Item key="3">Upload</Menu.Item>
-          </SubMenu>
-          <Menu.Item key="4" >
-            <Icon type="delete" />
-            <span><Link to={`${this.props.match.url}/4`}>Recycle Bin</Link></span>
-          </Menu.Item>
-        </Menu>
-      </Sider>
-
-    <Layout style={{ padding: "24px 24px" }}>
-    <Layout>
-    <Content style={{background: "#fff", padding: 24, }}>
-      <Route path={`${this.props.match.url}/1`} exact component={one}></Route>
+    if(this.props.login===false){
+      return <Redirect to='/Login' />
+    }else{
+      return(
+        <Layout style={{ minHeight: '100vh'}}>
+          <Sider className='sider' width='200px' style={{ background: "green" }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={["1"]}
+            defaultOpenKeys={["sub1"]}
+            style={{ height: "100%", borderRight: 0 }}
+          >
+            <Menu.Item key="1" >
+              <Link to={`${this.props.match.path}/files`}>
+                <div>
+                  <Icon type="folder" />
+                  <span>My Files</span>
+                </div>
+              </Link>
+            </Menu.Item>
+            <SubMenu key="sub1" title={<span><Icon type="book" />Task History</span>}>
+              <Menu.Item key="2">
+                <Link to={`${this.props.match.path}/download`}>Download</Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to={`${this.props.match.path}/upload`}>Upload</Link>
+              </Menu.Item>
+            </SubMenu>
+            <Menu.Item key="4" >
+              <Link to={`${this.props.match.path}/recycle`}>
+                <div>
+                  <Icon type="delete" />
+                  <span>Recycle Bin</span>
+                </div>
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </Sider>
       
-    </Content>
-    </Layout>
-    </Layout>
-    </Layout>
-    )
+        <Layout style={{ padding: "24px 24px" }}>
+          <Route path={`${this.props.match.url}/files`} exact component={MyFile}></Route>
+          <Route path={`${this.props.match.url}/download`} exact component={Download}></Route>
+          <Route path={`${this.props.match.url}/upload`} exact component={Upload}></Route>
+          <Route path={`${this.props.match.url}/recycle`} exact component={Recycle}></Route>      
+        </Layout>
+        </Layout>
+      )
+    }
   }
 }
 
-export default NetDisk
+const mapState = (state) => ({
+  login: state.getIn(['login', 'login'])
+})
+
+export default connect(mapState, null)(withRouter(NetDisk))
