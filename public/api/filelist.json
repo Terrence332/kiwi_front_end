@@ -1,0 +1,23 @@
+{
+  "code": 1000,
+  "folderList":[{
+    "id": 1,
+    "name": "folder1"
+  },{
+    "id": 2,
+    "name": "folder2"
+  },{
+    "id": 3,
+    "name": "folder3"
+  }],
+  "fileList":[{
+    "id": 21,
+    "name": "file1"
+  },{
+    "id": 22,
+    "name": "file2"
+  },{
+    "id": 23,
+    "name": "file3"
+  }]
+}

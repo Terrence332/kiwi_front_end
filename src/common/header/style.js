@@ -13,7 +13,6 @@ export const MenuDiv = styled.div`
   display: block;
   margin-left: 5%;
   float: left;
-  width: 70%;
   height: 64px;
   background-size: contain;
 `
