@@ -1,5 +1,6 @@
 {
   "code": 1000,
+  "currentPath": "/",
   "folderList":[{
     "id": 11,
     "name": "folder1",

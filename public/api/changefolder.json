@@ -1,29 +1,26 @@
 {
   "code": 1000,
+  "currentPath": "/folder",
   "folderList":[{
     "id": 11,
-    "name": "folder1",
+    "name": "folder4",
     "date": "2019-03-01"
   },{
     "id": 12,
-    "name": "folder2",
-    "date": "2019-03-01"
-  },{
-    "id": 13,
-    "name": "folder3",
+    "name": "folder5",
     "date": "2019-03-01"
   }],
   "fileList":[{
     "id": 21,
-    "name": "file1",
+    "name": "file4",
     "date": "2019-03-01"
   },{
     "id": 22,
-    "name": "file2",
+    "name": "file5",
     "date": "2019-03-01"
   },{
     "id": 23,
-    "name": "file3",
+    "name": "file6",
     "date": "2019-03-01"
   }]
 }
