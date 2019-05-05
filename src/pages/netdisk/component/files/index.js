@@ -1,7 +1,9 @@
 import React from 'react'
-import {Drawer, Button, Layout, Upload, message, Icon} from 'antd'
+import {Drawer, Button, Layout, Upload, message, Icon, List} from 'antd'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
+import FolderItem from './component/folder'
+import FilesItem from './component/files'
 import {
   UploadWrapper,
   PathWrapper
@@ -10,6 +12,10 @@ import {
 const { Content } = Layout
 
 class MyFile extends React.PureComponent{
+  componentWillMount(){
+    const {getInitialFilesList} = this.props
+    getInitialFilesList()
+  }
   // 文件上传抽屉开关
   showDrawer = ()=>{
     this.props.handleDrawVisable(true)
@@ -18,6 +24,8 @@ class MyFile extends React.PureComponent{
     this.props.handleDrawVisable(false)
   }
   render(){
+    // this.props 变量
+    const {currentPath, folderList, fileList, handleBackToPrevious} = this.props
     // 文件上传控件属性
     const uploadProps = {
       name: 'file',
@@ -41,12 +49,14 @@ class MyFile extends React.PureComponent{
         <UploadWrapper>
           <Button type='primary' className='upload' onClick={this.showDrawer}>Upload</Button>
           <PathWrapper>
-            <Button className='back'>Back</Button>
+            <Button className='new'>New Folder</Button>
+            <Button className='back' onClick={()=>{handleBackToPrevious(currentPath)}}>Back</Button>
             <p className='divide'>|</p>
-            <div className='pathDiv'>/path</div>
+            <div className='pathDiv'>{currentPath}</div>
             <p className='currentPath'>Current Path:</p>
           </PathWrapper>          
         </UploadWrapper>
+        {/* 文件上传抽屉 */}
         <Drawer
           placement="right"
           closable={false}
@@ -59,9 +69,21 @@ class MyFile extends React.PureComponent{
             </Button>
           </Upload>
         </Drawer>
-        {/* 文件列表 */}
+        {/* 文件夹列表 */}
         <Content style={{background: "#fff", padding: 24, minHeight: '90vh'}}>
-          <div>MyFile</div>
+        <List
+          itemLayout="horizontal"
+          dataSource={folderList}
+          renderItem={item => (
+            <FolderItem item={item}></FolderItem>
+          )}></List>
+        {/* 文件列表 */}
+        <List
+          itemLayout="horizontal"
+          dataSource={fileList}
+          renderItem={item => (
+            <FilesItem item={item}></FilesItem>
+          )}></List>
         </Content>
       </div>
     )
@@ -71,19 +93,24 @@ class MyFile extends React.PureComponent{
 const mapState = (state) => ({
   drawVisable: state.getIn(['netdisk', 'files', 'drawVisable']),
   currentPath: state.getIn(['netdisk', 'files', 'currentPath']),
-  folderList: state.getIn(['netdisk', 'file', 'folderList']),
-  fileList: state.getIn(['netdisk', 'file', 'fileList'])
+  folderList: state.getIn(['netdisk', 'files', 'folderList']),
+  fileList: state.getIn(['netdisk', 'files', 'fileList'])
 })
 
 const mapDispatch = (dispatch) => ({
   handleDrawVisable: (data)=>{
     dispatch(actionCreators.setDrawVisable(data))
   },
-  changeCurrentPath: (foldername)=>{
-
-  },
   getInitialFilesList: ()=>{
-    dispatch(actionCreators)
+    dispatch(actionCreators.getInitialFilesList())
+  },
+  handleBackToPrevious: (currentPath)=>{
+    if(currentPath==='/'){
+      return
+    }else{
+      dispatch(actionCreators.backToPrevious())
+    }
+    
   }
 })
 

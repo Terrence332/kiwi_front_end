@@ -12,12 +12,22 @@ export default(state = defaultState, action) => {
   switch(action.type){
     case constants.SET_DRAW_VISABLE:
       return state.set('drawVisable', action.data)
-    case constants.GET_CURRENT_PATH:
-      return state.set('currentPath', action.currentPath)
-    case constants.GET_FILES_LIST:
+    case constants.INITIAL_CONTENT:
       return state.merge({
         'folderList': fromJS(action.folderList),
-        'fileList': fromJS(action.fileList)
+        'fileList' : fromJS(action.fileList)
+      })
+    case constants.BACK_TO_PREVIOUS:
+      return state.merge({
+        'currentPath': action.currentPath,
+        'folderList': fromJS(action.folderList),
+        'fileList' : fromJS(action.fileList)
+      })
+    case constants.CHANGE_FOLDER:
+      return state.merge({
+        'currentPath': action.currentPath,
+        'folderList': fromJS(action.folderList),
+        'fileList' : fromJS(action.fileList)
       })
     default:
       return state

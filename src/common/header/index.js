@@ -29,9 +29,9 @@ class KiwiHeader extends React.PureComponent{
       const menu = (
         <Menu>
           <Menu.Item>
-            <Link to='/usercenter'>user center</Link>
+            <Link to='/usercenter'>User Center</Link>
           </Menu.Item>
-          <Menu.Item onClick={this.handleLogout}>logout</Menu.Item>
+          <Menu.Item onClick={this.handleLogout}>Logout</Menu.Item>
         </Menu>
       )
       return(

@@ -19,7 +19,7 @@ class NetDisk extends React.PureComponent{
     }else{
       return(
         <Layout style={{ minHeight: '100vh'}}>
-          <Sider className='sider' width='200px' style={{ background: "green" }}>
+          <Sider className='sider' width='200px'>
           <Menu
             mode="inline"
             defaultSelectedKeys={["1"]}

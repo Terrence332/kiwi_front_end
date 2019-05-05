@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const UploadWrapper = styled.div`
-  width: 850px;
+  width: 950px;
   height: 40px;
   margin: -15px 0 10px 0;
   .upload{
@@ -13,7 +13,7 @@ export const UploadWrapper = styled.div`
 `
 
 export const PathWrapper = styled.div`
-  width: 750px;
+  width: 850px;
   height: 40px;
   float: left;
   padding: 0 10px;
@@ -47,6 +47,13 @@ export const PathWrapper = styled.div`
     height: 30px;
     width: 75px;
     margin: 5px 0 5px 0;
+    float: right;
+    color: #616161;
+  }
+  .new{
+    height: 30px;
+    width: 100px;
+    margin: 5px 0 5px 5px;
     float: right;
     color: #616161;
   }
