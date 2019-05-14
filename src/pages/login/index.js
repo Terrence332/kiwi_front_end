@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {Button, Input, Icon, Alert} from 'antd'
 import {actionCreators} from './store'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {encrypt} from '../../global'
 import {
@@ -11,7 +12,8 @@ import {
   LoginLogo,
   LoginInput,
   LoginMessage,
-  LoginButton
+  LoginButton,
+  InfoDiv
 } from './style'
 
 class Login extends React.PureComponent{
@@ -102,6 +104,10 @@ class Login extends React.PureComponent{
                 shape='round'
                 onClick={this.handleLogin}>Login</Button>
             </LoginButton>
+            <InfoDiv>
+              <Link to='/register' className='info1'>No account yet?</Link>
+              <Link to='/fpwd' className='info2'>Forget passwoed.</Link>
+            </InfoDiv>
           </LoginBox>
         </LoginWrapper>
       )

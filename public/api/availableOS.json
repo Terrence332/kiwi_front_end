@@ -1,0 +1,42 @@
+{
+  "code": 1000,
+  "OSList": [
+    {
+      "value": "centos",
+      "label": "Centos",
+      "children": [
+        {
+          "value": "6.3",
+          "label": "6.3"
+        },{
+          "value": "7.4",
+          "label": "7.4"
+        }
+      ]
+    },{
+      "value": "ubuntu",
+      "label": "Ubuntu",
+      "children": [
+        {
+          "value": "14.04",
+          "label": "14.04"
+        },{
+          "value": "16.04",
+          "label": "16.04"
+        },{
+          "value": "18.04",
+          "label": "18.04"
+        }
+      ]
+    },{
+      "value": "debian",
+      "label": "Debian",
+      "children": [
+        {
+          "value": "9.9",
+          "label": "9.9"
+        }
+      ]
+    }
+  ]
+}

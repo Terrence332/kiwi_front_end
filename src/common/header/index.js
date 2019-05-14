@@ -15,6 +15,7 @@ const {Header} = Layout
 
 class KiwiHeader extends React.PureComponent{
   componentWillMount(){
+    localStorage.setItem('login', 'true')
     if(localStorage.getItem('login') === 'true' ){
       this.props.setLoginState()
     }

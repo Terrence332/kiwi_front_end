@@ -102,13 +102,13 @@ class FolderItem extends React.PureComponent{
           >
           {this.getItemContext()}
           <OperationDiv className='zone'>
-            <Dropdown className='operation' overlay={menu} placement="bottomLeft" trigger={['click']}>
-            <IconDiv hidden={mouseIn?'':'hidden'}>
-                <Icon className='icon' type='setting' theme="twoTone"/>
-                </IconDiv>
-            </Dropdown>
+            <IconDiv className='operation' hidden={mouseIn?'':'hidden'}>
+              <Dropdown overlay={menu} trigger={['click']}>
+                <Icon className='icon' type='ellipsis' title='more'/>
+              </Dropdown>
+            </IconDiv> 
             <IconDiv className='delete' hidden={mouseIn?'':'hidden'}>
-              <Icon className='icon' type='delete' theme="twoTone" onClick={this.modalShow}/>
+              <Icon className='icon' type='delete' theme="twoTone" title='delete' onClick={this.modalShow}/>
             </IconDiv>  
           </OperationDiv>
           <DateDiv className='zone'>
@@ -117,7 +117,7 @@ class FolderItem extends React.PureComponent{
         </FolderItemWrapper>
         {/* 删除提示框 */}
         <Modal
-          title="Basic Modal"
+          title="Warning"
           visible={modalVisable}
           onOk={this.modalOk}
           onCancel={this.modalClose}

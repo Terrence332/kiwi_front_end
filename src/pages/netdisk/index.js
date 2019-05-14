@@ -54,11 +54,11 @@ class NetDisk extends React.PureComponent{
         </Sider>
       
         <Layout style={{ padding: "24px 24px" }}>
-          <Route path={`${this.props.match.url}/`} exact component={MyFile}></Route>
-          <Route path={`${this.props.match.url}/files`} exact component={MyFile}></Route>
-          <Route path={`${this.props.match.url}/download`} exact component={Download}></Route>
-          <Route path={`${this.props.match.url}/upload`} exact component={Upload}></Route>
-          <Route path={`${this.props.match.url}/recycle`} exact component={Recycle}></Route>      
+          <Route path={`${this.props.match.path}/`} exact component={MyFile}></Route>
+          <Route path={`${this.props.match.path}/files`} exact component={MyFile}></Route>
+          <Route path={`${this.props.match.path}/download`} exact component={Download}></Route>
+          <Route path={`${this.props.match.path}/upload`} exact component={Upload}></Route>
+          <Route path={`${this.props.match.path}/recycle`} exact component={Recycle}></Route>      
         </Layout>
         </Layout>
       )

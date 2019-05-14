@@ -3,7 +3,7 @@ import {Drawer, Button, Layout, Upload, message, Icon, List} from 'antd'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
 import FolderItem from './component/folder'
-import FilesItem from './component/files'
+import FileItem from './component/files'
 import {
   UploadWrapper,
   PathWrapper
@@ -82,7 +82,7 @@ class MyFile extends React.PureComponent{
           itemLayout="horizontal"
           dataSource={fileList}
           renderItem={item => (
-            <FilesItem item={item}></FilesItem>
+            <FileItem item={item}></FileItem>
           )}></List>
         </Content>
       </div>

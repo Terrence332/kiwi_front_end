@@ -49,3 +49,17 @@ export const LoginMessage = styled.p`
   margin: -15px auto 20px auto;
   color: #ef5350
 `
+
+export const InfoDiv = styled.div`
+  width: 255px;
+  height: 20px;
+  margin: 0px auto;
+  .info1{
+    line-height: 20px;
+    float: left;
+  }
+  .info2{
+    line-height: 20px;
+    float: right;
+  }
+`

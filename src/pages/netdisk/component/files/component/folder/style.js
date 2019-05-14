@@ -61,6 +61,7 @@ export const OperationDiv = styled.div`
   .operation{
     margin-right: 30px;
     float: right;
+    color: #1890ff;
   }
   .icon{
     cursor: pointer;

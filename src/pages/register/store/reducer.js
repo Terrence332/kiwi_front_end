@@ -8,7 +8,7 @@ const defaultState = fromJS({
   confirm_password: '',
   username_repeat: false,
   email_repeat: false,
-  register_step: 2,
+  register_step: 1,
   verification: false
 })
 

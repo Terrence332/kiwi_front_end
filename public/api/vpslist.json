@@ -1,0 +1,28 @@
+{
+  "code": 1000,
+  "vpsList": [{
+    "id": 1,
+    "os": "centos",
+    "osv": "centos7.4",
+    "ip": "192.168.7.101",
+    "status": "running"
+  },{
+    "id": 2,
+    "os": "ubuntu",
+    "osv": "ubuntu16.04",
+    "ip": "192.168.7.103",
+    "status": "running"
+  },{
+    "id": 3,
+    "os": "centos",
+    "osv": "centos6.3",
+    "ip": "192.168.7.223",
+    "status": "stopped"
+  },{
+    "id": 4,
+    "os": "debian",
+    "osv": "debian9.9",
+    "ip": "192.168.7.203",
+    "status": "running"
+  }]  
+}
